@@ -10,7 +10,7 @@ oauth2.getAccessToken().subscribe(toke => {
     console.log('🚀 ', toke);
 });
 
-//const url = result.generateAuthUrl(accessTokenEmailAccount, configProject)
+//const url = result.generateAuthUrl(accessTokenEmailAccount)
 //console.log(url);
 //FileSystemExtra.saveDataDefault('src/tokens/access_user_token.json',{data:'carlos'});
 

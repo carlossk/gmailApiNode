@@ -6,13 +6,7 @@ import { credentials_user } from '../tokens/access_user_token.json';
 import { FileSystemExtra } from "../utils/file_system";
 
 
-export interface UserAccessToken {
-    access_token?: string;
-    refresh_token?: string,
-    scope?: string,
-    token_type?: string,
-    expiry_date?: number
-}
+
 
 export interface ProjectConfig {
     client_id?: string;
@@ -34,18 +28,17 @@ export class GoogleCredentials {
         })
     }
 
-    isTokenExpired(accessToken: UserAccessToken) {
+    isTokenExpired(accessToken: Credentials) {
         const expirationDate = moment(accessToken.expiry_date)
         return !!moment().diff(expirationDate, 'millisecond').valueOf();
     }
 
-    generateAuthUrl(accessToken: UserAccessToken, { client_id, client_secret, redirect_uris }: ProjectConfig) {
+    generateAuthUrl(accessToken: Credentials) {
 
         return this.oauth2
             .generateAuthUrl({
                 access_type: 'offline',
                 scope: [<string>accessToken.scope],
-
             });
 
     }
