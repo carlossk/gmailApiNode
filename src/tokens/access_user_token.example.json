@@ -1,0 +1,9 @@
+{
+    "credentials_user": {
+        "access_token": "",
+        "refresh_token": "",
+        "scope": "https://mail.google.com/",
+        "token_type": "Bearer",
+        "expiry_date": 1650518133214
+    }
+}

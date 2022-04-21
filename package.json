@@ -1,0 +1,28 @@
+{
+    "name": "gmailapinodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build-test": "cp -R src/env/environment.test.ts ./src/environment.ts && tsc  -W",
+        "build-prod": "cp -R src/env/environment.prod.ts ./src/environment.ts && tsc -W",
+        "dist": "nodemon  dist/main.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/node": "^17.0.25",
+        "typescript": "^4.6.3"
+    },
+    "dependencies": {
+        "axios": "^0.26.1",
+        "firebase-admin": "^10.0.2",
+        "fs-extra": "^10.1.0",
+        "google-auth-library": "^8.0.0",
+        "googleapis": "^100.0.0",
+        "moment": "^2.29.3",
+        "rxjs": "^7.5.5"
+    }
+}
