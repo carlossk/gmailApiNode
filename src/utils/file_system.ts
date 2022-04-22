@@ -1,6 +1,6 @@
+import fs from 'fs-extra';
 import { Credentials } from "google-auth-library";
 import { from } from "rxjs";
-import fs from 'fs-extra';
 
 
 export const TOKENS_PATH_FOLDER = 'src/tokens/access_user_token.json';

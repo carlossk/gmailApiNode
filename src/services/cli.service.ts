@@ -5,7 +5,6 @@ export enum Actions {
     CreateAuthUrl = 1,
     GenerateToken,
     GetAccessToken
-
 }
 export class UiCli {
 
@@ -28,7 +27,7 @@ export class UiCli {
     }
 
     static askAuthCode(googleApiCredentials: GoogleApiCredentials) {
-        
+
         const questions = [
             {
                 type: 'input',

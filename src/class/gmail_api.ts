@@ -1,4 +1,3 @@
-import { OAuth2Client } from 'google-auth-library';
 import { gmail_v1 } from 'googleapis';
 import { from, switchMap } from 'rxjs';
 import { configProject, firebaseServiceAccount } from '../environment';
@@ -62,7 +61,8 @@ export class GmailApi {
                             access_token: token,
                             requestBody: {
                                 labelIds: ['INBOX'],
-                                topicName: `projects/${firebaseServiceAccount.project_id}/topics/email`
+                                topicName: `projects/${firebaseServiceAccount.project_id}/topics/email`,
+                                
                             }
                         })
                     )
