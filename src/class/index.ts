@@ -1,2 +1,2 @@
 export { GmailApi } from './gmail_api';
-export { GoogleCredentials } from './google_credentials';
+export { GoogleApiCredentials } from './google_api_credentials';

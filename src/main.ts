@@ -1,14 +1,32 @@
-import readline from 'readline';
-import { switchMap } from "rxjs";
-import { GoogleCredentials } from "./class";
-import { accessTokenEmailAccount, configProject } from "./environment";
-import { FileSystemExtra } from "./utils/file_system";
-const { client_id, client_secret, redirect_uris } = configProject;
-const oauth2 = new GoogleCredentials(client_id, client_secret, redirect_uris);
+import { GmailApi } from "./class";
 
+
+const gmail = new GmailApi();
+gmail.listEmails().subscribe(data => {
+    console.log('🚀 ~ file: main.ts ~ line 6 ~ gmail.watchEmails ~ data', data.data.messages);
+});
+
+
+//eyJlbWFpbEFkZHJlc3MiOiJzcHJpbnRwYXNzZmVlZGVyQGNhcmdvc3ByaW50Z3JvdXAuY29tIiwiaGlzdG9yeUlkIjoyMDUxfQ==
+/*UiCli.mainMenu()
+
+    .subscribe(({ action }) => {
+        console.log('🚀', action)
+        if (action === Actions.GenerateToken) {
+            UiCli.askAuthCode(googleApiCredentials);
+            return;
+        }
+
+    })
+
+
+
+
+
+console.log(oauth2.isTokenExpired(credentials_user));
 oauth2.getAccessToken().subscribe(toke => {
     console.log('🚀 ', toke);
-});
+});*/
 
 //const url = result.generateAuthUrl(accessTokenEmailAccount)
 //console.log(url);

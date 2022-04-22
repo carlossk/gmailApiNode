@@ -1,1 +1,1 @@
- 
+export { credentials_user } from './access_user_token.json';
