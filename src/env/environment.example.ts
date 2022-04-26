@@ -6,7 +6,9 @@ export const accessTokenEmailAccount = {
     token_type: "Bearer",
     expiry_date: 1650481577047
 }
-
+export const topics = {
+    myTopic: "mytopic"
+}
 export const configProject = {
 
     client_id: "",
