@@ -1,5 +1,7 @@
 node_modules/
 dist/
-src/env/
+src/env/*.prod.ts
+src/env/*.test.ts
+
 src/environment.ts
 src/tokens/access_user_token.json

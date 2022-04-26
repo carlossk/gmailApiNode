@@ -1,5 +1,4 @@
 import { Credentials, OAuth2Client } from "google-auth-library";
-import moment from "moment";
 import { from, map, mapTo, Observable, switchMap } from "rxjs";
 import { credentials_user } from '../tokens/access_user_token.json';
 import { FileSystemExtra } from "../utils/file_system";
@@ -18,6 +17,7 @@ export class GoogleApiCredentials {
     private static instance: GoogleApiCredentials;
     private oauth2: OAuth2Client;
     constructor(private client_id: string, private client_secret: string, private redirect_uris: string[]) {
+        
         this.oauth2 = new OAuth2Client({
             clientId: client_id,
             clientSecret: client_secret,
@@ -31,18 +31,12 @@ export class GoogleApiCredentials {
         return GoogleApiCredentials.instance;
     }
 
-    isTokenExpired(accessToken: Credentials) {
-        const expirationDate = moment(accessToken.expiry_date);
-        console.log(expirationDate.format())
-        return moment().diff(expirationDate, 'millisecond').valueOf();
-    }
-
-    generateAuthUrl(accessToken: Credentials) {
+    generateAuthUrl(scope: string) {
 
         return this.oauth2
             .generateAuthUrl({
                 access_type: 'offline',
-                scope: [<string>accessToken.scope],
+                scope: [scope],
             });
 
     }
@@ -54,7 +48,6 @@ export class GoogleApiCredentials {
                     return tokens
                 }));
     }
-
 
     refreshAccessToken(): Observable<string> {
         this.setCredentials(credentials_user);

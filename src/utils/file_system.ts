@@ -13,7 +13,7 @@ export class FileSystemExtra {
     }
 
     static saveData$(path: string, data: any) {
-        console.log(path, data);
+
         return from(fs.writeJson(path, data));
     }
 
